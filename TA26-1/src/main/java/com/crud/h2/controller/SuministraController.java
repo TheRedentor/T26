@@ -28,7 +28,7 @@ public class SuministraController {
 	
 	
 	@PostMapping("/suministra")
-	public Suministra salvarSuministra(Suministra suministra) {
+	public Suministra salvarSuministra(@RequestBody Suministra suministra) {
 		
 		return suministraServiceImpl.guardarSuministra(suministra);
 	}
@@ -47,7 +47,7 @@ public class SuministraController {
 	}
 	
 	@PutMapping("/suministra/{codigo_suministra}")
-	public Suministra actualizarSuministra(@PathVariable(name="codigo_suministra")int codigo_suministra,Suministra suministra) {
+	public Suministra actualizarSuministra(@PathVariable(name="codigo_suministra")int codigo_suministra,@RequestBody Suministra suministra) {
 		
 		Suministra suministra_seleccionado= new Suministra();
 		Suministra suministra_actualizado= new Suministra();

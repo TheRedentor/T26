@@ -104,7 +104,7 @@ public class Suministra {
 	}
 
 	/**
-	 * @param proveedor
+	 * @param precio
 	 */
 	public void setPrecio(int precio) {
 		this.precio = precio;

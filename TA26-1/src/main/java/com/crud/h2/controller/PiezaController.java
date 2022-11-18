@@ -29,7 +29,7 @@ public class PiezaController {
 	
 	
 	@PostMapping("/piezas")
-	public Pieza salvarPieza(Pieza pieza) {
+	public Pieza salvarPieza(@RequestBody Pieza pieza) {
 		
 		return piezaServiceImpl.guardarPieza(pieza);
 	}
@@ -48,7 +48,7 @@ public class PiezaController {
 	}
 	
 	@PutMapping("/piezas/{codigo_pieza}")
-	public Pieza actualizarPieza(@PathVariable(name="codigo_pieza")int codigo_pieza,Pieza pieza) {
+	public Pieza actualizarPieza(@PathVariable(name="codigo_pieza")int codigo_pieza,@RequestBody Pieza pieza) {
 		
 		Pieza pieza_seleccionado= new Pieza();
 		Pieza pieza_actualizado= new Pieza();

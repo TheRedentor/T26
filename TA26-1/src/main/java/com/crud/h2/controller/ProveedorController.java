@@ -29,7 +29,7 @@ public class ProveedorController {
 	
 	
 	@PostMapping("/proveedores")
-	public Proveedor salvarProveedor(Proveedor proveedor) {
+	public Proveedor salvarProveedor(@RequestBody Proveedor proveedor) {
 		
 		return proveedorServiceImpl.guardarProveedor(proveedor);
 	}
@@ -48,7 +48,7 @@ public class ProveedorController {
 	}
 	
 	@PutMapping("/proveedores/{codigo_proveedor}")
-	public Proveedor actualizarProveedor(@PathVariable(name="codigo_proveedor")int codigo_proveedor,Proveedor proveedor) {
+	public Proveedor actualizarProveedor(@PathVariable(name="codigo_proveedor")int codigo_proveedor,@RequestBody Proveedor proveedor) {
 		
 		Proveedor proveedor_seleccionado= new Proveedor();
 		Proveedor proveedor_actualizado= new Proveedor();
