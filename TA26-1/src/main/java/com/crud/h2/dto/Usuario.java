@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -20,9 +21,21 @@ public class Usuario {
 	private long id;
 	private String username;
 	private String password;
-    private String role;
 
-
+    @OneToMany
+    @JoinColumn(name="id")
+    private List<Role> roles;
+    
+    public Usuario() {
+		
+	}
+    
+    public Usuario(long id, String username) {
+		//super();
+		this.id = id;
+		this.username = username;
+	}
+    
 	public long getId() {
 		return id;
 	}
@@ -43,12 +56,14 @@ public class Usuario {
 		this.password = password;
 	}
 	
-	public String getRole() {
-		return role;
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Role")
+	public List<Role> getRoles() {
+		return roles;
 	}
 	
-	public void setRole(String role) {
-		this.role = role;
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 	
 	
